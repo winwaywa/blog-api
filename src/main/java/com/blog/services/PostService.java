@@ -3,6 +3,7 @@ package com.blog.services;
 import java.util.List;
 
 import com.blog.payloads.PostDto;
+import com.blog.payloads.PostResponse;
 
 public interface PostService {
 
@@ -16,7 +17,7 @@ public interface PostService {
 	void deletePost(Integer postId);
 
 	// get all posts
-	List<PostDto> getAllPost();
+	PostResponse getAllPost(Integer pageNumber,Integer pageSize,String sortBy,String sortDir);
 
 	// get single post
 	PostDto getPostById(Integer postId);
