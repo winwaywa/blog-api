@@ -1,5 +1,8 @@
 package com.blog.payloads;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
@@ -17,7 +20,8 @@ public class UserDto {
 	@Size(min = 3, max = 20, message = "Username must be min of 3 chars and max of 20 chars")
 	private String name;
 
-	@Email
+	@Email(message = "Email address is not valid !!")
+	@NotEmpty(message = "Email is required !!")
 	private String email;
 
 	@NotEmpty
@@ -26,4 +30,6 @@ public class UserDto {
 
 	@NotEmpty
 	private String about;
+
+	private Set<RoleDto> roles = new HashSet<>();
 }
